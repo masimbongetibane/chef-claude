@@ -18,7 +18,11 @@ function Main() {
     }
 
     function addIngredient(formData) {
-        const newIngredient = formData.get("ingredient")
+        const newIngredient = formData.get("ingredient").trim();
+
+        if (!newIngredient) {
+            return
+        }
 
         setIngredients(prevIngredients => [
             ...prevIngredients,
